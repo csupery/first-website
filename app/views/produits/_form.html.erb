@@ -51,6 +51,11 @@
     <%= form.text_field :category_id %>
   </div>
 
+  <div class="field">
+    <%= form.label :photos %>
+    <%= form.file_field :photo, multiple: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
