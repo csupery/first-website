@@ -11,7 +11,21 @@
   width: 40px;
 }
 
-.navbar-lewagon .navbar-panier img {
+
+.navbar-firstwebsite img {
   width: 25px;
-  padding-top: 5px;
+  padding-bottom: 5px;
+  filter: invert(100%);
+}
+
+
+a.nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-firstwebsite {
+  background-color: #CAC4CE;
+  height: 80px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.1);
 }
