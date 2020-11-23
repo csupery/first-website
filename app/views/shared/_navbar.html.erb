@@ -1,34 +1,13 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "Logo_TV_2015" %>
-  <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active mr-2">
-          <%= link_to current_user.prenom, "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "#", class: "navbar-panier" do %>
-            <%= image_tag "bag" %>
-          <% end %>
-        </li>
+<div class="navbar navbar-firstwebsite sticky-top navbar-light navbar-expand-sm ">
+  <div class="container">
+    <a class="navbar-brand" href="/"><strong>My Brand</strong></a>
+    <div class="d-flex flex-row align-items-center">
+      <% if !user_signed_in? %>
+        <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
       <% else %>
-        <li class="nav-item active mr-2">
-          <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "#", class: "navbar-panier" do %>
-            <%= image_tag "bag" %>
-          <% end %>
-        </li>
+        <%= link_to current_user.prenom, "#", class: "nav-link" %>
       <% end %>
-    </ul>
+        <%= image_tag "bag" %>
+    </div>
   </div>
 </div>

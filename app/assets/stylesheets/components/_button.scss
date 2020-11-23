@@ -1,0 +1,21 @@
+.btn-outline-mauve {
+  color: #74546A;
+  // border-bottom: 2px solid #74546A;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  color: #CAC4CE;
+}
+
+.btn:hover {
+    outline-width: 0;
+}
+
+.btn:hover, .btn:focus {
+    background-color: rgba(0,0,0,0);
+    // border: 1px solid transparent;
+    // transition: background-color 0.25s ease-out,color 0.25s ease-out;
+    // transform-origin: left;
+  }
