@@ -1,2 +1,5 @@
-ORDER_STATUT = [ :enregistrée, :payée, :annulée, :remboursée ]
-GENRE_PRODUITS = [ :femme, :homme, :autre ]
+STATUT_ORDER = [ :en_cours, :validée, :annulée ]
+STATUT_VENTE = [ :en_cours, :validée, :annulée ]
+STATUT_ORDER_ITEM = [ :en_cours, :validé, :annulé ]
+TYPE_LIVRAISON = [ :collecte_magasin, :livraison_domicile ]
+STATUT_LIVRAISON = [ :en_attente, :préparée, :à_récolter, :envoyée, :reçue ]

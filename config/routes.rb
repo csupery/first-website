@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :ventes
+  resources :stocks
+  resources :genres
+  resources :couleurs
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 

@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_181404) do
+ActiveRecord::Schema.define(version: 2020_11_23_201011) do
 
   create_table "categories", force: :cascade do |t|
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "couleurs", force: :cascade do |t|
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
     t.string "nom"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -28,19 +40,21 @@ ActiveRecord::Schema.define(version: 2020_11_22_181404) do
     t.integer "order_id", null: false
     t.integer "produit_id", null: false
     t.integer "quantite"
-    t.integer "prix"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "statut_order"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["produit_id"], name: "index_order_items_on_produit_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "statut"
     t.integer "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "statut_livraison"
+    t.integer "statut_order"
+    t.integer "type_livraison"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -48,16 +62,26 @@ ActiveRecord::Schema.define(version: 2020_11_22_181404) do
     t.string "nom"
     t.string "description"
     t.string "reference"
-    t.string "prix"
-    t.string "couleur"
-    t.integer "quantite"
     t.integer "marque_id", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "genre"
+    t.integer "prix"
+    t.integer "genre_id", null: false
+    t.integer "couleur_id", null: false
     t.index ["category_id"], name: "index_produits_on_category_id"
+    t.index ["couleur_id"], name: "index_produits_on_couleur_id"
+    t.index ["genre_id"], name: "index_produits_on_genre_id"
     t.index ["marque_id"], name: "index_produits_on_marque_id"
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.integer "produit_id", null: false
+    t.string "taille"
+    t.integer "quantite"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["produit_id"], name: "index_stocks_on_produit_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,9 +101,26 @@ ActiveRecord::Schema.define(version: 2020_11_22_181404) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "ventes", force: :cascade do |t|
+    t.integer "produit_id", null: false
+    t.integer "prix"
+    t.integer "user_id", null: false
+    t.integer "statut_vente"
+    t.boolean "remboursement"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["produit_id"], name: "index_ventes_on_produit_id"
+    t.index ["user_id"], name: "index_ventes_on_user_id"
+  end
+
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "produits"
   add_foreign_key "orders", "users"
   add_foreign_key "produits", "categories"
+  add_foreign_key "produits", "couleurs"
+  add_foreign_key "produits", "genres"
   add_foreign_key "produits", "marques"
+  add_foreign_key "stocks", "produits"
+  add_foreign_key "ventes", "produits"
+  add_foreign_key "ventes", "users"
 end
