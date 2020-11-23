@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  produit: one
+  prix: 1
+  user: one
+  statut_vente: 1
+  remboursement: false
+
+two:
+  produit: two
+  prix: 1
+  user: two
+  statut_vente: 1
+  remboursement: false
