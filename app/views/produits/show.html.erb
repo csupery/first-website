@@ -1,44 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nom:</strong>
-  <%= @produit.nom %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @produit.description %>
-</p>
-
-<p>
-  <strong>Reference:</strong>
-  <%= @produit.reference %>
-</p>
-
-<p>
-  <strong>Prix:</strong>
-  <%= @produit.prix %>
-</p>
-
-<p>
-  <strong>Couleur:</strong>
-  <%= @produit.couleur %>
-</p>
-
-<p>
-  <strong>Quantite:</strong>
-  <%= @produit.quantite %>
-</p>
-
-<p>
-  <strong>Marque:</strong>
-  <%= @produit.marque_id %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @produit.category_id %>
-</p>
-
-<%= link_to 'Edit', edit_produit_path(@produit) %> |
-<%= link_to 'Back', produits_path %>
+<div class="row justify-content-between d-flex">
+  <div class="col-8 photos">
+    <% @produit.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, class:"cloudinary-image", crop: :crop %>
+    <% end %>
+  </div>
+  <div class="col-4 mt-4" id="produit-infos">
+     <p> <strong> Nom:</strong> <%= @produit.name %> </p>
+     <p> <strong> Description:</strong> <%= @produit.description %> </p>
+  </div>
+</div>

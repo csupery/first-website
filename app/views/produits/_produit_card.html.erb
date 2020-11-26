@@ -1,0 +1,12 @@
+<%= link_to produit_path(produit), class: "text-decoration-none primary-link" do %>
+  <div class="card-produit">
+    <%= cl_image_tag produit.photos.first.key, height: 300, width: 400, crop: :fill %>
+    <div class="card-produit-infos">
+      <div>
+        <h2> <%= produit.name.capitalize %> </h2>
+        <p>  <%= produit.marque.name.capitalize %> </p>
+      </div>
+      <h2 class="card-produit-pricing"> <%= produit.price %> € </h2>
+    </div>
+  </div>
+<% end %>
