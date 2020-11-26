@@ -38,6 +38,17 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  # config.model Produit do
+  #   edit do
+  #     # For RailsAdmin >= 0.5.0
+  #     field :description, :code_mirror
+  #     # For RailsAdmin < 0.5.0
+  #     # field :description do
+  #     #   codemirror true
+  #     # end
+  #   end
+  # end
+
   config.authorize_with do
     unless current_user.admin?
       flash[:alert] = 'Sorry, no admin access for you.'

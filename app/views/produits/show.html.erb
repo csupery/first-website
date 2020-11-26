@@ -7,5 +7,6 @@
   <div class="col-4 mt-4" id="produit-infos">
      <p> <strong> Nom:</strong> <%= @produit.name %> </p>
      <p> <strong> Description:</strong> <%= @produit.description %> </p>
+     <p> <strong> Price:</strong> <%= humanized_money_with_symbol(@produit.price) %> </p>
   </div>
 </div>
