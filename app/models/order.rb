@@ -7,4 +7,6 @@ class Order < ApplicationRecord
   enum status_delivery: STATUS_DELIVERY
 
   validates :type_delivery, presence: true
+
+  monetize :total_cents
 end

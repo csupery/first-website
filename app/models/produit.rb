@@ -11,5 +11,6 @@ class Produit < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :reference, presence: true
-  validates :price, presence: true
+
+  monetize :price_cents
 end

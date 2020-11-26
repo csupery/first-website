@@ -62,3 +62,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 
 gem 'rails-html-sanitizer'
+
+gem 'money-rails', '~>1.12'
+
+gem 'codemirror-rails'

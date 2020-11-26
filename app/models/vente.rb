@@ -3,4 +3,6 @@ class Vente < ApplicationRecord
   belongs_to :user
 
   enum status_vente: STATUS_VENTE
+
+  monetize :price_cents
 end

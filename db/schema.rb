@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_160156) do
+ActiveRecord::Schema.define(version: 2020_11_26_184049) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,12 +70,13 @@ ActiveRecord::Schema.define(version: 2020_11_26_160156) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status_delivery"
     t.integer "status_order"
     t.integer "type_delivery"
+    t.integer "total_cents", default: 0, null: false
+    t.string "total_currency", default: "EUR", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -87,10 +88,11 @@ ActiveRecord::Schema.define(version: 2020_11_26_160156) do
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price"
     t.integer "couleur_id", null: false
     t.integer "quantity"
     t.integer "genre_id", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
     t.index ["category_id"], name: "index_produits_on_category_id"
     t.index ["couleur_id"], name: "index_produits_on_couleur_id"
     t.index ["genre_id"], name: "index_produits_on_genre_id"
@@ -125,12 +127,13 @@ ActiveRecord::Schema.define(version: 2020_11_26_160156) do
 
   create_table "ventes", force: :cascade do |t|
     t.integer "produit_id", null: false
-    t.integer "price"
     t.integer "user_id", null: false
     t.integer "status_vente"
     t.boolean "remboursement"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
     t.index ["produit_id"], name: "index_ventes_on_produit_id"
     t.index ["user_id"], name: "index_ventes_on_user_id"
   end
