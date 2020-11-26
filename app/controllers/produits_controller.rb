@@ -5,6 +5,8 @@ class ProduitsController < ApplicationController
   # GET /produits.json
   def index
     @produits = Produit.all
+    @genres = Genre.all
+    @categories = Category.all
   end
 
   # GET /produits/1
@@ -69,6 +71,6 @@ class ProduitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def produit_params
-      params.require(:produit).permit(:nom, :description, :reference, :prix, :couleur, :quantite, :marque_id, :category_id, photo: [])
+      params.require(:produit).permit(:name, :description, :reference, :price, :couleur, :quantity, :marque_id, :category_id, photos: [])
     end
 end

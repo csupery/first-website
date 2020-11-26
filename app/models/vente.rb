@@ -2,6 +2,5 @@ class Vente < ApplicationRecord
   belongs_to :produit
   belongs_to :user
 
-  enum statut_vente: STATUT_VENTE
-
+  enum status_vente: STATUS_VENTE
 end

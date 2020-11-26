@@ -69,6 +69,6 @@ class MarquesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def marque_params
-      params.require(:marque).permit(:nom)
+      params.require(:marque).permit(:name)
     end
 end

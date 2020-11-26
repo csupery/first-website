@@ -69,6 +69,6 @@ class VentesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vente_params
-      params.require(:vente).permit(:produit_id, :prix, :user_id, :statut_vente, :remboursement)
+      params.require(:vente).permit(:produit_id, :price, :user_id, :status_vente, :remboursement)
     end
 end
