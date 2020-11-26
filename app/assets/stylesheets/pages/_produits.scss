@@ -1,3 +1,13 @@
 // Place all the styles related to the Ventes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#produit-infos {
+  height: 100vh;
+  position: sticky;
+  top: 90px;
+}
+
+.photos > img {
+  width: 100%;
+}
+
