@@ -69,6 +69,6 @@ class CouleursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def couleur_params
-      params.require(:couleur).permit(:nom)
+      params.require(:couleur).permit(:name)
     end
 end

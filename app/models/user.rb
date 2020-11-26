@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :orders, dependent: :destroy
   has_many :ventes, dependent: :destroy
+
+  validates :nom, presence: true
+  validates :prenom, presence: true
 end
