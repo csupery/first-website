@@ -1,9 +1,9 @@
 <div class="row justify-content-between align-items-center flex-grow-0">
   <div class="col-2">
-    <aside class="container mt-4">
+    <aside class="container mt-4 text-center">
       <% @genres.each do |genre|%>
-        <h5 class="mt-4"> <%= genre.name.upcase  %>  </h5>
-        <% @categories.where(genre: genre).each do |category| %>
+        <h5 class="mt-4"> <%= genre.name.upcase  %> </h5>
+        <% @categories.each do |category| %>
           <h6> <%= category.name.capitalize %> </h6>
         <% end %>
       <% end %>
@@ -11,8 +11,8 @@
   </div>
 
   <div class="col-10">
-    <% @produits.each do |produit| %>
-      <div class="cards">
+    <div class="cards m-4">
+      <% @produits.each do |produit| %>
         <div class="card-produit">
           <%= cl_image_tag produit.photos.first.key, height: 300, width: 400, crop: :fill %>
           <div class="card-produit-infos">
@@ -23,8 +23,8 @@
             <h2 class="card-produit-pricing"> <%= produit.price %> € </h2>
           </div>
         </div>
-      </div>
       <% end %>
+    </div>
   </div>
 </div>
 

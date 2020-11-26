@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_104920) do
+ActiveRecord::Schema.define(version: 2020_11_26_132036) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 2020_11_26_104920) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "genre_id", null: false
-    t.index ["genre_id"], name: "index_categories_on_genre_id"
   end
 
   create_table "couleurs", force: :cascade do |t|
@@ -91,17 +89,20 @@ ActiveRecord::Schema.define(version: 2020_11_26_104920) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
     t.integer "couleur_id", null: false
+    t.integer "quantity"
+    t.integer "genre_id", null: false
     t.index ["category_id"], name: "index_produits_on_category_id"
     t.index ["couleur_id"], name: "index_produits_on_couleur_id"
+    t.index ["genre_id"], name: "index_produits_on_genre_id"
     t.index ["marque_id"], name: "index_produits_on_marque_id"
   end
 
   create_table "stocks", force: :cascade do |t|
-    t.integer "produit_id", null: false
     t.string "size"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "produit_id"
     t.index ["produit_id"], name: "index_stocks_on_produit_id"
   end
 
@@ -135,14 +136,13 @@ ActiveRecord::Schema.define(version: 2020_11_26_104920) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "categories", "genres"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "produits"
   add_foreign_key "orders", "users"
   add_foreign_key "produits", "categories"
   add_foreign_key "produits", "couleurs"
+  add_foreign_key "produits", "genres"
   add_foreign_key "produits", "marques"
-  add_foreign_key "stocks", "produits"
   add_foreign_key "ventes", "produits"
   add_foreign_key "ventes", "users"
 end
